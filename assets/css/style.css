@@ -1,0 +1,45 @@
+.row {
+  width: 100vw;
+  height: 100vh;
+  background-color: antiquewhite;
+  display: flex;
+}
+
+.avatar {
+  position: absolute;
+  background-size: cover;
+  width: 304px;
+  height: 304px;
+  background-color: #d4d99b;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccc;
+  transition: width 0.8s ease, height 0.8s ease;
+  cursor: pointer;
+}
+.avatar:hover {
+  width: 345px;
+  height: 345px;
+}
+
+.col-50 {
+  width: 50vw;
+  height: 100%;
+  background-color: aqua;
+}
+
+.row-558 {
+  width: 100%;
+  height: 55.8%;
+  background-color: #ededed;
+}
+
+.row-442 {
+  width: 100%;
+  height: 44.2%;
+  background-color: #ededed;
+}
+
+/*# sourceMappingURL=style.css.map */
