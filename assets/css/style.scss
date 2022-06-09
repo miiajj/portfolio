@@ -1,51 +1,287 @@
-@mixin circle ($diameter, $color) {
-    width: $diameter;
-    height: $diameter;
-    background-color: $color;
-    border-radius: 50%;
-}
-
 .row {
     width: 100vw;
     height: 100vh;
-    background-color: antiquewhite;
     display: flex;
-}
-
-.avatar {
-    position: absolute;
-    // background: #fff url(../img/IMG_20211228_170831_842.jpg) no-repeat center center;
-    background-size: cover;
-    @include circle(304px, #d4d99b);
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    border: 1px solid #ccc;
-    transition: width 0.8s ease, height 0.8s ease;
-    cursor: pointer;
-
-    &:hover {
-        width: 345px;
-        height: 345px;
-    }
 }
 
 .col-50 {
     width: 50vw;
     height: 100%;
-    background-color: aqua;
 }
 
 .row-558 {
     width: 100%;
     height: 55.8%;
-    background-color: rgb(237, 237, 237);
-    // border: 1px solid rgb(89,89,89);
 }
 
 .row-442 {
     width: 100%;
     height: 44.2%;
-    background-color: rgb(237, 237, 237);
-    // border: 1px solid rgb(89,89,89);
 }
+
+.intro,
+.skills,
+.career-goals,
+.contacts {
+    width: 100%;
+    height: 100%;
+    user-select: none;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    scroll-behavior: smooth;
+}
+
+.intro {
+    background-color: #fff;
+    position: relative;
+    &__heading {
+        position: absolute;
+        left: 16%;
+        top: 16%;
+        font-size: 2.8rem;
+        text-shadow: 2px 2px #ddd;
+        line-height: 4rem;
+        font-weight: 500;
+        color: #333;
+        & > span {
+            font-size: 2.4rem;
+            margin-left: 20px;
+        }
+    }
+    &__content {
+        position: absolute;
+        left: 28%;
+        top: 50%;
+        line-height: 2.8rem;
+        font-size: 1.7rem;
+        text-align: justify;
+        padding-top: 12px;
+    }
+}
+
+#role {
+    color: #0c14b8;
+}
+
+#cursor {
+	display: inline-block;
+	vertical-align: middle;
+	width: 3px;
+	height: 2.8rem;
+	background-color: #0c14b8;
+	animation: blink .75s step-end infinite;
+}
+
+@keyframes blink {
+	from, to { 
+		background-color: transparent 
+	}
+	50% { 
+		background-color: #0c14b8; 
+	}
+}
+
+.skills {
+    position: relative;
+    background-color: #fff;
+    &__heading {
+        color: #e54e26;
+        text-shadow: 2px 2px #ddd;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        font-size: 2.4rem;
+        font-weight: 500;
+        line-height: 3.2rem;
+        width: 146px;
+    }
+}
+
+@mixin icon($width, $height, $src: '') {
+    position: absolute;
+    width: $width;
+    background-image: url($src);
+    background-repeat: no-repeat;
+    height: $height;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.html {
+    left: 8%;
+    top: 18%;
+    background-size: 701% 516%;
+    background-position: -211px -4px;
+    @include icon(56px, 56px, "../img/languages.png");
+}
+
+.css {
+    left: 32%;
+    top: 6%;
+    background-size: 706% 516%;
+    background-position: -310px -4px;
+    @include icon(56px, 56px, "../img/languages.png");
+}
+
+.js {
+    left: 12%;
+    top: 50%;
+    background-size: 701% 516%;
+    background-position: -120px -4px;
+    @include icon(56px, 56px, "../img/languages.png");
+}
+
+.java-core {
+    left: 32%;
+    bottom: 12%;
+    border-radius: 32px !important;
+    background-size: 408% 193%;
+    background-position: -29px -17px;
+    @include icon(64px, 64px, "../img/java.jpg");
+}
+
+.php {
+    right: 16%;
+    bottom: 10%;
+    border-radius: 20px;
+    background-size: 440% 600%;
+    background-position: -8px -148px;
+    @include icon(84px, 40px, "../img/languages.png");
+}
+
+.tsql {
+    right: 24%;
+    top: 12%;
+    background-color: #ccc;
+    background-size: cover;
+    @include icon(68px, 68px, "../img/t-sql.png");
+}
+
+.git {
+    right: 12%;
+    top: 44%;
+    background-size: contain;
+    @include icon(72px, 72px, "../img/Github-Logo.png");
+}
+
+.icon:hover {
+
+}
+
+.career-goals {
+    position: relative;
+    background-color: #171b20;
+    background-image: url("../img/luna.png");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+    &__heading {
+        color: #4ef634;
+        text-shadow: 2px 2px #333;
+        position: absolute;
+        right: 8%;
+        top: 20%;
+        transform: rotate(36deg);
+        font-size: 2.8rem;
+        font-weight: 500;
+    }
+}
+
+.contacts {
+    position: relative;
+    &__heading {
+        text-align: center;
+        padding: 2.8rem;
+        font-size: 2.8rem;
+        font-weight: 500;
+        color: #ff0090;
+        text-shadow: 2px 2px #ddd;
+    }
+    &__content {
+        position: absolute;
+        width: 288px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        &>p {
+            margin: 4px 0 0 20px;
+        }
+    }
+}
+
+#myemail, #mygit, #mylinkedin {
+    color: #333;
+    margin-left: 12px;
+    transition: all 0.4s ease-out;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+#myemail:hover {
+    color: #c6231e;
+}
+
+#mylinkedin:hover {
+    color: #0a66c2;
+}
+
+#mygit {
+    margin-top: 20px;
+}
+
+.avatar {
+    position: absolute;
+    z-index: 999;
+    background: #fff url(../img/cartoon.jpg) no-repeat center center;
+    background-size: cover;
+    width: 20rem;
+    height: 20rem;
+    background-color: antiquewhite;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border: 1px solid #ccc;
+    transition: width 0.8s ease-out, height 0.8s ease-out;
+    cursor: pointer;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+    &:hover {
+        width: 18rem;
+        height: 18rem;
+    }
+}
+
+@keyframes example {
+    0%   {
+        border-radius: 57% 43% 40% 60% / 45% 52% 48% 55%;
+    }
+    25%  {
+        border-radius: 67% 33% 41% 59% / 38% 64% 36% 62%;
+    }
+    50%  {
+        border-radius: 75% 25% 60% 40% / 35% 36% 64% 65%;
+    }
+    75%  {
+        border-radius: 51% 49% 52% 48% / 26% 51% 49% 74%;
+    }
+    100% {
+        border-radius: 57% 43% 40% 60% / 45% 52% 48% 55%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .career-goals {
+        background-size: cover;
+        background-position: 0% 0%;
+    }
+  }

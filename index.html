@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
+    <title>I'm Huy</title>
 </head>
 <body>
     <div class="app">
@@ -14,8 +18,12 @@
             <div class="col-50">
                 <div class="row-442">
                     <div class="intro">
-                        <h1 class="intro__heading">Hello ! I’m newbie<br>Front End Web Developer</h1>
-                        <p class="intro__content">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi possimus debitis excepturi quam perspiciatis, suscipit dolorem repudiandae aliquid veniam reprehenderit tempora laudantium at architecto facere animi modi eaque blanditiis rerum.</p>
+                        <h1 class="intro__heading">Hello ! I’m Huy<br><span id="role">Web Developer</span><div id="cursor"></div></h1>
+                        <p class="intro__content">
+                            <b>-</b> My fullname is Nguyen Ngoc Huy.<br>
+                            <b>-</b> My year of birth is 2001 <br>
+                            <b>-</b> Loading...
+                        </p>
                     </div>
                 </div>
                 <div class="row-558">
@@ -28,18 +36,95 @@
             <div class="col-50">
                 <div class="row-558">
                     <div class="skills">
-                        <h2 class="skills__heading">Some of<br>my programming-related skills</h2>
+                        <h2 class="skills__heading">Some of<br>my<br>programming<br>skills</h2>
+                        <div class="html icon"></div>
+                        <div class="css icon"></div>
+                        <div class="js icon"></div>
+                        <div class="java-core icon"></div>
+                        <div class="php icon"></div>
+                        <div class="tsql icon"></div>
+                        <div class="git icon"></div>
+                        
                     </div>
                 </div>
                 <div class="row-442">
                     <div class="contacts">
-                        <h2 class="contacts__heading">Thanks for watching it! </h2>
-                        <p class="contacts__content">And if you feel I can help you with something or about work, feel free to contact me!<br>Here</p>
+                        <h2 class="contacts__heading">Contact me</h2>
+                        <div class="contacts__content">
+                            If you feel I can help you with something <br>
+                             or about work,<br>
+                            feel free to contact me!
+                            <p>Github:<a href="https://github.com/miiajj" id="mygit" target="_blank">miiajj</a></p>
+                            <p>Linkedin:<a href="https://www.linkedin.com/in/huy-nguyen-ngoc-767731218/" id="mylinkedin" target="_blank">huynguyenngoc</a></p>
+                            <p>Email:<a href="mailto:huynn.ved@gmail.com" id="myemail">huynn.ved@gmail.com</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        // let intro = document.getElementsByClassName('intro')[0];
+        // let skills = document.getElementsByClassName('skills')[0];
+        // let career_goals = document.getElementsByClassName('career-goals')[0];
+        // let contacts = document.getElementsByClassName('contacts')[0];
+        // console.log(intro);
+        // intro.addEventListener('click', function (e) {
+        //     console.log(e.pageX, e.pageY);
+        //     console.log(e.offsetX, e.offsetY);
+        //     console.log(e.clientX, e.clientY);
+        // });
+        // skills.addEventListener('click', function (e) {
+        //     console.log(e);
+        // });
+        // career_goals.addEventListener('click', function (e) {
+        //     console.log(e);
+        // });
+        // contacts.addEventListener('click', function (e) {
+        //     console.log(e);
+        // });
 
+        let _CONTENT = [ 
+            "Newbie Backend Developer", 
+            "Amateur Frontend Developer",
+            "Amateur Writter"
+        ];
+
+        let _PART = 0;
+        let _PART_INDEX = 0;
+        let _INTERVAL_VAL;
+        let _ELEMENT = document.querySelector("#role");
+        let _CURSOR = document.querySelector("#cursor");
+        function Type() { 
+            let text =  _CONTENT[_PART].substring(0, _PART_INDEX + 1);
+            _ELEMENT.innerHTML = text;
+            _PART_INDEX++;
+            if(text === _CONTENT[_PART]) {
+                clearInterval(_INTERVAL_VAL);
+                setTimeout(function() {
+                    _INTERVAL_VAL = setInterval(Delete, 50);
+                }, 1000);
+            }
+        }
+
+        function Delete() {
+            let text =  _CONTENT[_PART].substring(0, _PART_INDEX - 1);
+            _ELEMENT.innerHTML = text;
+            _PART_INDEX--;
+
+            if(text === '') {
+                clearInterval(_INTERVAL_VAL);
+                if(_PART == (_CONTENT.length - 1))
+                    _PART = 0;
+                else
+                    _PART++;
+                _PART_INDEX = 0;
+                setTimeout(function() {
+                    _INTERVAL_VAL = setInterval(Type, 100);
+                }, 200);
+            }
+        }
+        _INTERVAL_VAL = setInterval(Type, 100);
+    </script>
 </body>
 </html>
